@@ -1,0 +1,10 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: housing-service
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/hr_onboarding_housing}
+      auto-index-creation: ${MONGODB_AUTO_INDEX_CREATION:false}
