@@ -1,0 +1,19 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: employee-service
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/hr_onboarding_employee}
+      auto-index-creation: ${MONGODB_AUTO_INDEX_CREATION:false}
+
+management:
+  health:
+    mongo:
+      enabled: ${MONGO_HEALTH_ENABLED:false}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
