@@ -1,0 +1,10 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: application-service
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/hr_onboarding_application}
+      auto-index-creation: ${MONGODB_AUTO_INDEX_CREATION:false}
