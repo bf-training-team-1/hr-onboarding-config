@@ -1,0 +1,14 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: auth-service
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/hr_onboarding_auth}
+      auto-index-creation: ${MONGODB_AUTO_INDEX_CREATION:false}
+
+jwt:
+  secret: ${JWT_SECRET:dev-only-change-me}
+  expiration-ms: ${JWT_EXPIRATION_MS:86400000}
