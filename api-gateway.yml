@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+          routes:
+             - id: auth-service
+              uri: lb://auth-service
+              predicates:
+                - Path=/api/auth/**
+            - id: employee-service
+              uri: lb://employee-service
+              predicates:
+                - Path=/api/employees/**
+            - id: application-service
+              uri: lb://application-service
+              predicates:
+                - Path=/api/applications/**
+            - id: housing-service
+              uri: lb://housing-service
+              predicates:
+                - Path=/api/housing/**
+            - id: email-service
+              uri: lb://email-service
+              predicates:
+                - Path=/api/emails/**
