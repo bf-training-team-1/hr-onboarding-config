@@ -4,10 +4,14 @@ server:
 spring:
   application:
     name: auth-service
-  data:
-    mongodb:
-      uri: ${MONGODB_URI:mongodb://localhost:27017/hr_onboarding_auth}
-      auto-index-creation: ${MONGODB_AUTO_INDEX_CREATION:false}
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST}:3306/auth_db?useSSL=true&requireSSL=true&serverTimezone=UTC
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 
 jwt:
   secret: ${JWT_SECRET:dev-only-change-me}
