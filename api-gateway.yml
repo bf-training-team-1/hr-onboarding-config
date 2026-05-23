@@ -17,19 +17,32 @@ spring:
               uri: lb://auth-service
               predicates:
                 - Path=/api/auth/**
+              filters:
+                - StripPrefix=2
             - id: employee-service
               uri: lb://employee-service
               predicates:
                 - Path=/api/employees/**
+              filters:
+                - StripPrefix=2
             - id: application-service
               uri: lb://application-service
               predicates:
                 - Path=/api/applications/**
+              filters:
+                - StripPrefix=2
             - id: housing-service
               uri: lb://housing-service
               predicates:
                 - Path=/api/housing/**
+              filters:
+                - StripPrefix=2
             - id: email-service
               uri: lb://email-service
               predicates:
                 - Path=/api/emails/**
+              filters:
+                - StripPrefix=2
+
+jwt:
+  secret: ${JWT_SECRET}
